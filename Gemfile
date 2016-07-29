@@ -11,6 +11,7 @@ gem "bootstrap-sass", "3.2.0.0"
 gem "turbolinks"
 gem "jbuilder", "~> 2.0"
 gem "sdoc", "~> 0.4.0", group: :doc
+gem "devise"
 group :development, :test do
   gem "byebug"
   gem "sqlite3"
