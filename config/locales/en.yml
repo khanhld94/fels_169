@@ -15,3 +15,7 @@ en:
     trainer: "Trainer"
     eduman: "Education Manager"
     title: "About"
+  users:
+    login: "Login"
+    logout: "Logout"
+    edit: "Edit Profile"
