@@ -19,3 +19,6 @@ en:
     login: "Login"
     logout: "Logout"
     edit: "Edit Profile"
+  facebook: "facebook"
+  google_oauth2: "google"
+  twitter: "twitter"
