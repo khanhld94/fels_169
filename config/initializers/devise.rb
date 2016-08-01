@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -24,7 +24,12 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
+  require "omniauth-facebook"
+  config.omniauth :google_oauth2, "993113885948-nia9pv1sc3p1noqr0u2cmpu4j0bhhlip.apps.googleusercontent.com",
+    "FB9hSzzpCXd8E_WvNtuaRGCi"
+  config.omniauth :facebook, "1098247140246424", "0c6f2f3bdadac56a6effd36370c10d98"
+  config.omniauth :twitter, "c9e9RgaHg53CfsA8g6MlGaSMB", "Rw3QeI7mEAGFPx8wh2kW7WFaMElueM1zAcUtsVqFvNfCv3F6i2"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
