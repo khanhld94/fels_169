@@ -2,13 +2,17 @@
 @import "bootstrap";
 
 .alert-notice {
-  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+  @include alert-variant($alert-success-bg, 
+    $alert-success-border, $alert-success-text);
 }
 
 .alert-alert {
-  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+  @include alert-variant($alert-danger-bg, 
+    $alert-danger-border, $alert-danger-text);
 }
-
+h3 {
+  text-align: center;
+}
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -115,4 +119,19 @@ input {
 }
 .header-img {
   height: 40px;
+}
+/* index category */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+td {
+  width: 100px;
 }

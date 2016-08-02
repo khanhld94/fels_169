@@ -24,13 +24,21 @@ en:
   facebook: "facebook"
   google_oauth2: "google"
   twitter: "twitter"
+  edit: "Edit"
+  delete: "Delete"
   flash:
     not_admin: "You don't have permission to do this action"
     fail: "Some thing went wrong"
+    confirm: "Are You Sure"
+    record_not_found: "Record not found"
   categories:
+    category: "category"
+    index: "index"
     new: "Submit"
     success: "Category have been created"
     new_category: "New Category"
+    deleted: "Category have been deleted"
+    update: "Category have been deleted"
   error:
     error: "error"
   relationship:

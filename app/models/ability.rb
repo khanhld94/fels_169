@@ -3,6 +3,6 @@ class Ability
 
   def initialize user
     user ||= User.new
-    can [:new, :create], Category if user.admin?
+    can :manage, Category if user.admin?
   end
 end
