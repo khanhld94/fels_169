@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def current_user? user
+    user == self
+  end
+
   def follow other_user
     active_relationships.create followed_id: other_user.id
   end
