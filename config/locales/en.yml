@@ -19,6 +19,8 @@ en:
     login: "Login"
     logout: "Logout"
     edit: "Edit Profile"
+    empty: "User not found"
+    index: "All Users"
   facebook: "facebook"
   google_oauth2: "google"
   twitter: "twitter"
@@ -31,3 +33,8 @@ en:
     new_category: "New Category"
   error:
     error: "error"
+  relationship:
+    follow: "Follow"
+    unfollow: "Unfollow"
+    following: "Following"
+    followers: "Followers"
