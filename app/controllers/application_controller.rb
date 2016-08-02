@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
   end
+  rescue_from ActiveRecord::RecordNotFound do
+    flash[:danger] = t "flash.record_not_found", column_name: params[:id]
+    redirect_to root_url
+  end
+
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
