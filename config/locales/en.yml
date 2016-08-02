@@ -26,12 +26,14 @@ en:
   twitter: "twitter"
   edit: "Edit"
   delete: "Delete"
+  remove: "Remove"
   flash:
     not_admin: "You don't have permission to do this action"
     fail: "Some thing went wrong"
     confirm: "Are You Sure"
     record_not_found: "Record not found"
   categories:
+    search: "Search"
     category: "category"
     index: "index"
     new: "Submit"
@@ -39,6 +41,7 @@ en:
     new_category: "New Category"
     deleted: "Category have been deleted"
     update: "Category have been deleted"
+    add_condition: "Add Condition"
   error:
     error: "error"
   relationship:
@@ -46,3 +49,6 @@ en:
     unfollow: "Unfollow"
     following: "Following"
     followers: "Followers"
+  table:
+    name: "Category name"
+    description: "Description"

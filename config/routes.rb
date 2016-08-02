@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get "about" => "static_pages#about"
   namespace :admin do
-    resources :categories, except: [:show]
+    resources :categories
   end 
   resources :users, only: [:index, :show] do
-    resources :relationships, only: [:index]
+    resources :relationships, only: :index
   end
   resources :relationships, only: [:create, :destroy]
 end
