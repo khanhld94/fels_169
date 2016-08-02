@@ -12,6 +12,11 @@ class Admin::CategoriesController < ApplicationController
     @categories = @search.result
   end
 
+  def show
+    @search = @category.words.search params[:q]
+    @words = @search.result
+  end
+
   def destroy
     if @category.destroy
       flash[:success] = t "categories.deleted"
