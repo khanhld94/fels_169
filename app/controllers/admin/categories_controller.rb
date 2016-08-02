@@ -6,8 +6,10 @@ class Admin::CategoriesController < ApplicationController
 
   def edit
   end
-  
+
   def index
+    @search = @categories.search params[:q]
+    @categories = @search.result
   end
 
   def destroy

@@ -136,6 +136,16 @@ th, td {
 td {
   width: 100px;
 }
+.category {
+  select {
+    @extend .form-control;
+  }
+}
+.wrapper {
+  margin-top: 20px;
+  margin-right: 70px;
+  margin-left: 70px;
+}
 
 /* follow */
 .stats {
