@@ -52,3 +52,12 @@ en:
   table:
     name: "Category name"
     description: "Description"
+  submit: "Submit"
+  words:
+    success: "Word has been created"
+    fail: "Cannot create word"
+    new: "New Word"
+    list: "Word List"
+    number: "Number of words"
+    word: "Word"
+    meaning: "Meaning"

@@ -1,0 +1,22 @@
+<div class="col-md-3">
+  <h1><%= @category.name %></h1>
+  <small><%= t "words.number" %>:<%= @category.words.count %></small>
+</div>
+<div class="col-md-9">
+  <h3><%= t "words.list" %></h3>
+  <table class="table table striped">
+    <thead>
+      <tr>
+        <th><%= sort_link @search, :content, t("words.word") %></th>
+        <th><%= t "words.meaning" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @words.each do |word| %>
+        <tr>
+          <td><%= word.content %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
