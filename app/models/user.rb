@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
     foreign_key: "followed_id", dependent:   :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+
+  enum role: {admin: 1, user: 0}
   
   class << self 
     def from_omniauth auth
@@ -23,8 +25,8 @@ class User < ActiveRecord::Base
 
     def new_with_session params, session
       super.tap do |user|
-        if data = session["devise.#{provider}_data"] && 
-          session["devise.#{provider}_data"]["extra"]["raw_info"]
+        if data = session["devise.#{user.provider}_data"] && 
+          session["devise.#{user.provider}_data"]["extra"]["raw_info"]
           user.email = data["email"] if user.email.blank?
         end
       end

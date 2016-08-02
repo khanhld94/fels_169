@@ -22,3 +22,12 @@ en:
   facebook: "facebook"
   google_oauth2: "google"
   twitter: "twitter"
+  flash:
+    not_admin: "You don't have permission to do this action"
+    fail: "Some thing went wrong"
+  categories:
+    new: "Submit"
+    success: "Category have been created"
+    new_category: "New Category"
+  error:
+    error: "error"
