@@ -52,6 +52,7 @@ en:
   table:
     name: "Category name"
     description: "Description"
+    email: "Email"
   submit: "Submit"
   words:
     success: "Word has been created"
@@ -61,3 +62,7 @@ en:
     number: "Number of words"
     word: "Word"
     meaning: "Meaning"
+  users:
+    search: "Search"
+    category: "category"
+    index: "index"

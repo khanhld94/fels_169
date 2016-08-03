@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :categories
     resources :words, only: [:new, :create]
+    resources :users
   end 
   resources :users, only: [:index, :show] do
     resources :relationships, only: :index

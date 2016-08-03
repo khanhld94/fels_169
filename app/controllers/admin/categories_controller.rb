@@ -9,7 +9,7 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     @search = @categories.search params[:q]
-    @categories = @search.result
+    @categories = @search.result.page(params[:page]).per Settings.per_page
   end
 
   def show
