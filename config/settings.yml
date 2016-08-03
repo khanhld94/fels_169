@@ -2,3 +2,4 @@ relation:
   followers: "followers"
   following: "following"
 per_page: 10
+default_number_of_answers: 4

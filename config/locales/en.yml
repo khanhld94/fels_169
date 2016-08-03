@@ -62,6 +62,9 @@ en:
     number: "Number of words"
     word: "Word"
     meaning: "Meaning"
+    remove_answer: "Remove Answer"
+    true_answer: "Check if this is true answer"
+    add_answer: "Add Answer"
   users:
     search: "Search"
     category: "category"
