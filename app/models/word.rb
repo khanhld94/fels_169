@@ -11,7 +11,7 @@ class Word < ActiveRecord::Base
   validates_presence_of :category
   validates :content, presence: true
 
-  def reject_answers
+  def reject_answers attributes
     attributes["content"].blank?
   end
 end

@@ -1,13 +1,21 @@
 class Ability
   include CanCan::Ability
 
-  def initialize user
+  def initialize user, namespace
     user ||= User.new
-    if user.admin?
-      can :manage, :all
+    if namespace == "admin"
+      if user.admin?
+        can :manage, :all
+      else
+        cannot :manage, :all
+      end
     else
-      can :read, :all
-      can [:create, :update], Lesson, user_id: user.id
+      if user.admin?
+        cannot :manage, :all
+      else
+        can :read, :all
+        can [:create, :update], Lesson
+      end
     end
   end
 end

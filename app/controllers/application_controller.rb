@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: [:username]
   end
 
+  def current_ability
+    namespace = controller_path.split("/").first
+    Ability.new current_user, namespace
+  end
+
 end

@@ -1,0 +1,48 @@
+<% provide :title, t("words.index") %>
+<h3><%= t "words.index" %></h3>
+<%= search_form_for @search, url: admin_words_path do |f| %>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+  <div><%= link_to_add_fields_search t("categories.add_condition"), 
+    f, :condition %></div>
+  <div class="actions"><%= f.submit t("categories.search"), 
+    class: "btn btn-primary" %></div>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link @search, :content, t("words.word") %></th>
+      <th><%= sort_link @search, :category, t("table.name") %></th>
+      <th><%= t "words.answers" %></th>
+      <th><%= t "words.action" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word.content %></td>
+        <td><%= word.category.name %></td>
+        <td>
+          <% word.word_answers.each do |word_answer| %>
+            <%= word_answer.content %>:
+            <% if word_answer.is_correct? %>
+              <%= t "words.true_answer" %><br>
+            <% else %>
+              <%= t "words.wrong_answer" %><br>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to t("button.edit"), edit_admin_word_path(word),
+            class: "btn btn-success" %>
+          <%= link_to t("button.delete"), admin_word_path(word),
+            method: :delete, data: {confirm: t("flash.confirm")},
+            class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @words %>
