@@ -42,6 +42,7 @@ en:
     deleted: "Category have been deleted"
     update: "Category have been deleted"
     add_condition: "Add Condition"
+    create_lesson: "Create Lesson"
   error:
     error: "error"
   relationship:
@@ -54,6 +55,9 @@ en:
     description: "Description"
     email: "Email"
   submit: "Submit"
+  finish: "finish"
+  confirm: "Are you sure?"
+  question: "Question"
   words:
     success: "Word has been created"
     fail: "Cannot create word"

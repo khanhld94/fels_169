@@ -3,3 +3,4 @@ relation:
   following: "following"
 per_page: 10
 default_number_of_answers: 4
+number_word: 20

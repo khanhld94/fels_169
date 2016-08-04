@@ -1,0 +1,11 @@
+<li><%= f.object.word.content %></li>
+<ul class="list-unstyled">
+  <% f.object.word.word_answers.each do |word_answer| %>
+    <li>
+      <label class="radio-inline">
+        <%= f.radio_button :word_answer_id, word_answer.id %>
+        <%= word_answer.content %>
+      </label>
+    </li>
+  <% end %>
+</ul>
