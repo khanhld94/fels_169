@@ -4,7 +4,7 @@
   <%= f.condition_fields do |c| %>
     <%= render "condition_fields", f: c %>
   <% end %>
-  <div><%= link_to_add_fields t("categories.add_condition"), 
+  <div><%= link_to_add_fields_search t("categories.add_condition"), 
     f, :condition %></div>
   <div class="actions"><%= f.submit t("categories.search"), 
     class: "btn btn-primary" %></div>

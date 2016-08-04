@@ -3,6 +3,9 @@ class Admin::WordsController < ApplicationController
 
   def new
     @categories = Category.all
+    Settings.default_number_of_answers.times do
+      @word.word_answers.build
+    end
   end
 
   def create
@@ -17,6 +20,7 @@ class Admin::WordsController < ApplicationController
 
   private
   def word_params
-    params.require(:word).permit :content, :category_id
+    params.require(:word).permit :content, :category_id,
+      word_answers_attributes: [:id, :content, :is_correct, :_destroy]
   end
 end
