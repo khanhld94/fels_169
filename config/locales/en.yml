@@ -58,6 +58,9 @@ en:
   finish: "finish"
   confirm: "Are you sure?"
   question: "Question"
+  your_answer: "Your Answer"
+  correct_answer: "Correct Answer"
+  seconds: "Seconds"
   words:
     success: "Your Action Has Been Success"
     fail: "Your Action Has Been Fail"

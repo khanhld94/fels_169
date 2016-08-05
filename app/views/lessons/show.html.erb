@@ -1,18 +1,37 @@
 <%= provide :title, @lesson.category.name %>
+<div class="clock_lesson">
+  <b><%= t :remaining_times %></b>
+  <span id="time_lesson"><%= Settings.time_lesson %></span>
+  <%= t :seconds %>
+</div>
 <div class="dn-front-group">
   <div class="col-md-6">
     <b><%= t "categories.category" %></b> : <%= @lesson.category.name %>
   </div>
-  <div class="col-md-6">
-    <p>
-      <h3><%= t :question %></h3>
-      <%= form_for [@lesson.category, @lesson] do |f| %>
-        <%= f.fields_for :results do |result| %>
-          <%= render "test_fields", f: result %>
+  <div class="col-md-7 col-md-offset-0 answer_show">
+    <h2>
+      <b><%= t "category.category" %></b> :
+      <b><%= @lesson.category.name %></b>
+    </h2>
+    <hr>
+    <div id="lesson_<%= @lesson.id %>">
+      <p>
+        <% if @lesson.init? %>
+          <h3><%= t :question %></h3>
+          <%= form_for [@lesson.category, @lesson] do |f| %>
+            <%= f.fields_for :results do |result| %>
+              <%= render "test_fields", f: result %>
+            <% end %>
+            <%= f.hidden_field :status, value: "finished" %>
+            <% if can? :update, @lesson %>
+              <%= f.submit t(:finish), method: :update,
+                data: {confirm: t(:confirm)}, class: "btn btn-primary form-control" %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= render "lesson_result" %>
         <% end %>
-        <%= f.submit t(:finish), data: {confirm: t(:confirm)}, 
-          class: "btn btn-primary" %>
-      <% end %>
-    </p>
+      </p>
+    </div>
   </div>
 </div>
