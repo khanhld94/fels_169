@@ -1,22 +1,55 @@
-<div class="col-md-3">
+<% provide :title, @category.name %>
+<div class="col-sm-3">
   <h1><%= @category.name %></h1>
   <small><%= t "words.number" %>:<%= @category.words.count %></small>
+  <%= link_to t("words.new"), new_admin_word_path, class: "btn btn-success" %>
 </div>
-<div class="col-md-9">
+<div class="col-sm-9">
   <h3><%= t "words.list" %></h3>
+  <div class="search-form">
+    <%= search_form_for @search, url: admin_category_path(@category) do |f| %>
+      <%= f.condition_fields do |c| %>
+        <%= render "condition_fields", f: c %>
+      <% end %>
+      <div><%= link_to_add_fields_search t("categories.add_condition"), 
+        f, :condition %></div>
+      <div class="actions"><%= f.submit t("categories.search"), 
+        class: "btn btn-primary" %></div>
+    <% end %>
+  </div>
   <table class="table table striped">
     <thead>
       <tr>
         <th><%= sort_link @search, :content, t("words.word") %></th>
-        <th><%= t "words.meaning" %></th>
+        <th><%= t "words.answers" %></th>
+        <th><%= t "words.action" %></th>
       </tr>
     </thead>
     <tbody>
       <% @words.each do |word| %>
         <tr>
           <td><%= word.content %></td>
+          <td>
+            <% word.word_answers.each do |word_answer| %>
+              <% if word_answer.is_correct? %>
+                <%= t "words.true_answer" %>:
+                <%= word_answer.content %><br>
+              <% else %>
+                <%= t "words.wrong_answer" %>:
+                <%= word_answer.content %><br>
+              <% end %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to t("button.edit"), edit_admin_word_path(word),
+              class: "btn btn-success" %>
+            <%= link_to t("button.delete"), admin_word_path(word),
+              method: :delete, data: {confirm: t("flash.confirm")},
+              class: "btn btn-danger" %>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <%= paginate @words %>
 </div>

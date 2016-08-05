@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "about" => "static_pages#about"
   namespace :admin do
     resources :categories
-    resources :words, only: [:new, :create]
+    resources :words, except: :show
     resources :users
   end 
   resources :users, only: [:index, :show] do

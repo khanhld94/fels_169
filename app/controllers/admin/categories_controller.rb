@@ -14,7 +14,8 @@ class Admin::CategoriesController < ApplicationController
 
   def show
     @search = @category.words.search params[:q]
-    @words = @search.result
+    @words = @search.result.includes(:word_answers)
+      .page(params[:page]).per Settings.per_page
   end
 
   def destroy

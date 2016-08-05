@@ -182,4 +182,7 @@ td {
 }
 .text-input {
   margin-bottom: 2px;
-} 
+}
+#word_category_id {
+  @extend .form-control;
+}

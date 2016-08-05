@@ -11,14 +11,21 @@
           <%= link_to t("static_pages.about"), about_path %>
         </li>
         <% if user_signed_in? %>
-          <li>
-            <%= link_to t("categories.new_category"), 
-              new_admin_category_path %>
-          </li>
-          <li>
-            <%= link_to t("words.new"), 
-              new_admin_word_path %>
-          </li>          
+          <% if current_user.admin? %>
+            <li>
+              <%= link_to t("categories.index"), admin_categories_path %>
+            </li>
+            <li>
+              <%= link_to t("categories.new_category"), 
+                new_admin_category_path %>
+            </li>
+            <li>
+              <%= link_to t("words.index"), admin_words_path %>
+            </li>
+            <li>
+              <%= link_to t("words.new"), new_admin_word_path %>
+            </li>
+          <% end %>
           <li>
             <%= link_to t("users.edit"), edit_user_registration_path %>
           </li>
