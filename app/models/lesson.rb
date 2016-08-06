@@ -7,10 +7,16 @@ class Lesson < ActiveRecord::Base
 
   validates :user, presence: true
   validates :category, presence: true
+
+  enum status: [:init, :finished]
   
   accepts_nested_attributes_for :results
   
   before_create :random_words
+  
+  def load_answer_correct
+    Result.sum_correct_answer self.id
+  end
 
   private
   def random_words

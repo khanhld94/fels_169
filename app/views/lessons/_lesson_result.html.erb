@@ -1,0 +1,25 @@
+<div>
+  <%= t :correct_answer %> : <%= @sum_correct_answer %> /
+  <%= @lesson.results.size %>
+</div>
+<table class="table">
+  <thead>
+    <th><%= t :word %></th>
+    <th><%= t :your_answer %></th>
+    <th><%= t :correct_answer %></th>
+  </thead>
+  <tbody>
+    <% @lesson.results.each do |result| %>
+      <tr>
+        <td><%= result.word.content %></td>
+        <td><%= result.word_answer.present? ? 
+          result.word_answer.content : "" %></td>
+        <td><%= get_correct_answer(result.word).content %></td>
+        <td>
+          <div class="<%= correct_answer_class result.word_answer %>">
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

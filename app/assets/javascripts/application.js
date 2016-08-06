@@ -14,3 +14,31 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+function timeOut() {
+  $('.edit_lesson').submit();
+  document.getElementById('time_lesson').innerHTML = 0;
+}
+
+function startTimer(time_created, display) {
+  var timer = time_created, minutes, seconds;
+  setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    display.textContent = minutes + ':' + seconds;
+
+    if (--timer < 0) {
+      timer = 0;
+      timeOut();
+    }
+  }, 1000);
+}
+
+window.onload = function () {
+  var value = document.getElementById('time_lesson').innerHTML;
+  var display = document.querySelector('#time_lesson');
+  startTimer(value, display);
+};

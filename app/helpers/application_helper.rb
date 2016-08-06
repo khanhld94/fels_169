@@ -22,4 +22,17 @@ module ApplicationHelper
     link_to name, "#", class: "add_fields", 
       data: {id: id, fields: fields.gsub("\n", "")}
   end
+
+  def get_correct_answer word
+    word.word_answers.find_by is_correct: true
+  end
+
+  def correct_answer_class word_answer
+    if word_answer.nil?
+      word_answer = "glyphicon glyphicon-remove"
+    else
+      word_answer.is_correct? ? "glyphicon glyphicon-ok" 
+        : "glyphicon glyphicon-remove"
+    end
+  end
 end
