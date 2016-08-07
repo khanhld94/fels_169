@@ -4,7 +4,7 @@
   <%= f.condition_fields do |c| %>
     <%= render "condition_fields", f: c %>
   <% end %>
-  <div><%= link_to_add_fields t("users.add_condition"), 
+  <div><%= link_to_add_fields_search t("users.add_condition"), 
     f, :condition %></div>
   <div class="actions"><%= f.submit t("users.search"), 
     class: "btn btn-primary" %></div>
@@ -14,11 +14,17 @@
   <tr>
     <th><%= sort_link @search, :name, t("table.name") %></th>
     <th><%= sort_link @search, :email, t("table.email") %></th>
+    <th><%= t :action %></th>
   </tr>
   <% @users.each do |user| %>
     <tr>
       <td><%= link_to user.name, admin_user_path(user) %></td>
       <td><%= user.email %></td>
+      <td>
+        <%= link_to t("button.delete"), admin_user_path(user),
+          method: :delete, data: {confirm: t("flash.confirm")},
+          class: "btn btn-danger" %>
+      </td>
     </tr>
   <% end %>
 </table>
