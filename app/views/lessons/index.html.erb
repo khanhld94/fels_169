@@ -1,0 +1,14 @@
+<table>
+  <% @lessons.each do |lesson| %>
+    <tr>
+      <td><%= lesson.id %></td>
+      <td><%= link_to lesson.category.name, categories_path %></td>
+      <td><%= lesson.created_at %></td>
+      <td><%= lesson.status %></td>
+      <td>
+        <%= link_to t(:show), [lesson.category, lesson] %>
+      </td>
+    </tr>
+  <% end %>
+</table>  
+<%= paginate @lessons %>
