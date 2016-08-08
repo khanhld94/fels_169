@@ -1,7 +1,7 @@
 <li><%= f.object.word.content %></li>
 <ul class="list-unstyled">
   <% f.object.word.word_answers.each do |word_answer| %>
-    <li>
+    <li id="<%= f.object.word.id %>" onchange="set_number(this.id)">
       <label class="radio-inline">
         <%= f.radio_button :word_answer_id, word_answer.id %>
         <%= word_answer.content %>

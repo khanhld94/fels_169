@@ -1,0 +1,24 @@
+<p>
+  <b><%= t :done %></b> :
+  <b id="number_of_checked"><%= @count %></b> /
+  <b><%= @lesson.results.count %></b>
+</p>  
+<div class="clock_lesson">
+  <b><%= t :remaining_times %></b>
+  <span id="time_lesson"><%= @time_lesson %></span>
+  <%= t :seconds %>
+</div>
+<h3><%= t :question %></h3>
+<%= form_for [@lesson.category, @lesson] do |f| %>
+  <%= f.fields_for :results do |result| %>
+    <%= render "test_fields", f: result %>
+  <% end %>
+  <%= f.hidden_field :status, id: "hidden_status" %>
+  <% if can? :update, @lesson %>
+    <%= f.submit t(:save), method: :update,
+      data: {confirm: t(:confirm)}, class: "btn btn-primary form-control" %>
+    <%= f.submit t(:finish), method: :update, 
+      data: {confirm: t(:confirm)}, class: "btn btn-primary form-control",
+      onclick: "submit_test()" %>
+  <% end %>
+<% end %>
