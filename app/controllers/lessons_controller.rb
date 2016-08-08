@@ -1,7 +1,14 @@
 class LessonsController < ApplicationController
-  load_and_authorize_resource only: [:create, :show, :update]
-  before_action :load_results, only: :show
+  load_and_authorize_resource except: [:edit, :destroy]
+  before_action :load_results, :load_info_lesson, only: :show
   
+  def index
+    @lessons = current_user.lessons
+    @search = @lessons.search params[:q]
+    @lessons = @search.result
+      .page(params[:page]).per Settings.per_page
+  end
+
   def create
     @category = @lesson.category
     @lesson.user = current_user
@@ -34,5 +41,19 @@ class LessonsController < ApplicationController
 
   def load_results
     @sum_correct_answer = @lesson.load_answer_correct
+  end
+
+  def load_info_lesson
+    @time_lesson = Settings.time_lesson - (Time.now.to_i -
+      @lesson.updated_at.to_time.to_i)
+    if @time_lesson <= 0 or @lesson.finished?
+      @time_lesson = 0
+    end
+    @count = 0
+    @lesson.results.each do |result|
+      if result.word_answer.present?
+        @count = @count.next
+      end
+    end
   end
 end
