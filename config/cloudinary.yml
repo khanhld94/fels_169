@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: duyhung
+  api_key: '865894744538163'
+  api_secret: 9cUiJHfxalklMVL0PpdZdOENGJo
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: duyhung
+  api_key: '865894744538163'
+  api_secret: 9cUiJHfxalklMVL0PpdZdOENGJo
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: duyhung
+  api_key: '865894744538163'
+  api_secret: 9cUiJHfxalklMVL0PpdZdOENGJo
+  enhance_image_tag: true
+  static_image_support: false
