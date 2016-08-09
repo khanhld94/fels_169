@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-ffunction timeOut() {
+function timeOut() {
   $('#hidden_status').val('finished');
   $('.edit_lesson').submit();
   document.getElementById('time_lesson').innerHTML = 0;
