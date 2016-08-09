@@ -24,6 +24,7 @@ gem "devise"
 gem "carrierwave"
 gem "mini_magick"
 gem "cloudinary"
+gem "public_activity"
 
 group :development, :test do
   gem "byebug"

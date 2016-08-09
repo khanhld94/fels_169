@@ -1,14 +1,15 @@
 <%= provide :title, @user.name %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-sm-4">
     <section class="user_info">
       <h1><%= @user.email %></h1>
     </section>
     <section class="stats">
       <%= render "shared/stats" %>
+      <%= render "follow_form" %>
     </section>
   </aside>
-  <div class="col-md-8">
-    <%= render "follow_form" %>
+  <div class="col-sm-8">
+    <%= render_activities @activities %>
   </div>
 </div>

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
+  before_action :load_activities, only: :show
 
   def index
   end
@@ -10,5 +11,11 @@ class UsersController < ApplicationController
     else
       current_user.active_relationships.build
     end
+  end
+
+  private
+  def load_activities
+    @activities = PublicActivity::Activity.all_activity(@user.id)
+      .order(created_at: :desc).limit Settings.per_page
   end
 end

@@ -14,6 +14,7 @@ class Ability
         cannot :manage, :all
       else
         can :read, :all
+        can :manage, Relationship
         can [:create, :update], Lesson
       end
     end
