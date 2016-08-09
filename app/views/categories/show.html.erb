@@ -1,0 +1,28 @@
+<div class="w3-container">
+  <h1><b><%= t :Category %></b></h1>
+  <h1><%= @category.name %></h1>
+  <div class="create_lesson">
+    <% if can? :create, @lesson %>
+      <%= form_for [@category, @lesson] do |f| %>
+        <%= f.hidden_field :category_id, value: @category.id %>
+        <%= f.submit t("categories.create_lesson"), 
+          class: "btn btn-primary col-md-3" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <table class="table table-bordered">
+        <tr>
+          <td><%= sort_link @search, :content, t(:word) %></th>
+          <td><%= sort_link @search, :category_id, t(:category_id) %></th>
+          <td><%= sort_link @search, :updated_at, t(:updated_at) %></th>
+        </tr>
+        <tr>
+          <%= render "shared/word_form" %>
+        </tr>
+      </table>
+      <%= paginate @words %>
+    </div>
+  </div>
+</div>

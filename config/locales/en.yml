@@ -65,6 +65,9 @@ en:
   your_answer: "Your Answer"
   correct_answer: "Correct Answer"
   seconds: "Seconds"
+  search: "Search"
+  content: "Content"
+  login_with: "Log in with"
   words:
     success: "Your Action Has Been Success"
     fail: "Your Action Has Been Fail"
