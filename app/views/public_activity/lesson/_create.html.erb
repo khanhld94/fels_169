@@ -1,0 +1,8 @@
+<li>
+  <% if current_user_activity_owner? a %>
+    <%= t :you %>
+  <% else %>
+    <%= link_to a.owner.name, a.owner %>
+  <% end %>
+  <%= t "activity.lesson.create" %> <%= a.trackable.category.name %>
+</li>

@@ -93,3 +93,8 @@ en:
   sign_up: "Sign up"
   log_in: "Log in"
   social_signin: "Sign in with %{provide}"
+  you: "You"
+  activity:
+    index: "All Activities"
+    lesson:
+      create: "has started a lesson in"
