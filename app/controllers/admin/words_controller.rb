@@ -4,7 +4,7 @@ class Admin::WordsController < ApplicationController
 
   def index
     @search = @words.search params[:q]
-    @words = @search.result.page(params[:page]).per Settings.per_page
+    @words = @search.result.page params[:page]
   end
 
   def new

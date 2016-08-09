@@ -1,0 +1,35 @@
+<% if can? :read, @words %>
+  <div class="container">
+    <h1><%= t "word.index" %></h1>
+    <nav class="navbar navbar-default search">
+      <%= search_form_for @search, 
+        {class: "navbar-form", role: "form"} do |f| %>
+        <%= f.collection_select :category_id_eq, @categories,
+          :id, :name, {include_blank: true},  
+          class: "form-control" %>
+        <% Settings["condition_filters"].each do |condition| %>
+          <ul class="input-group dn-front-word-filter">
+            <%= radio_button_tag :condition, condition, 
+              params[:condition] == condition %>
+            <%= label_tag condition %>
+          </ul>
+        <% end %>
+        <%= f.label :conten_cont, t(:word_title), class: "sr-only" %>
+        <%= f.text_field :content_cont, placeholder: t(:content),
+          class: "search_form form-control" %>
+        <%= f.submit t(:search), class: "btn btn-primary search_button" %>
+      <% end %>
+    </nav>
+    <table class="table">
+      <tr>
+        <th><%= sort_link @search, :content, t("word.title") %></th>
+        <th><%= t :correct_answer %></th>
+        <th><%= sort_link @search, :category_name, t(:category) %></th>
+      </tr>
+      <tbody>
+        <%= render "shared/word", words: @words %>
+        <%= paginate @words %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   
   def index
     @search = @users.search params[:q]
-    @users = @search.result.page(params[:page]).per Settings.per_page    
+    @users = @search.result.page params[:page]
   end
 
   def destroy

@@ -1,0 +1,22 @@
+<% lessons.each do |lesson| %>
+  <tr>
+    <td><%= l lesson.created_at, format: :long %></td>
+    <td><%= link_to lesson.category.name, lesson.category %></td>
+    <td>
+      <div class="<%= lesson_status_class lesson %>">
+        <%= lesson.status %>
+      </div>
+    </td>
+    <td><%= lesson.results.size %></td>
+    <td>
+      <% if lesson.finished? %>
+        <%= link_to t(:show), [lesson.category, lesson], 
+          class: "btn btn-success", data: {turbolinks: false} %>
+      <% else %>
+        <%= link_to t(:continue), [lesson.category, lesson], 
+          class: "btn btn-info",
+          data: {turbolinks: false} %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

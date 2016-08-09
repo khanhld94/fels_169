@@ -1,0 +1,12 @@
+<% @words.each do |word| %>
+  <tr>
+    <td>
+      <%= current_user.admin? ?
+        link_to(word.title, [:admin, word]) : word.content %>
+    </td>
+    <td>
+      <%= get_correct_answer(word).content %>
+    </td>
+    <td><%= word.category.name %></td>
+  </tr>
+<% end %>

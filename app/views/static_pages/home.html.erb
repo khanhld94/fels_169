@@ -1,13 +1,34 @@
 <% provide :title, t("static_pages.title") %>
-<div class="jumbotron text-center">
-  <div class="header-content-inner">
-    <h1><%= t "static_pages.framgia" %></h1>
-    <hr>
-    <h3>
-      <%= t "static_pages.intro" %>
-    </h3>
-    <div class="btn btn-danger btn-lg">
-      <%= link_to t("static_pages.login"), new_user_session_path %>
+<% if user_signed_in? %>
+  <aside>
+    <div class="col-md-9 home-content">
+      <h1><%= t :action %></h1>
+      <table class="table table-bordered table-hover">
+        <thead class="thead-default">
+          <tr>
+            <th><%= t :created_at %></th>
+            <th><%= t "category.category" %></th>
+            <th><%= t :status %></th>
+            <th><%= t :word %></th>
+            <th><%= t :action %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render "shared/index_lesson", lessons: @lessons %>
+          <%= paginate @lessons %>
+        </tbody>
+      </table>
     </div>
+  </aside>
+  <aside>
+    <div class="col-md-3 activity">
+      <h1><%= t :activities_index %></h1>
+    </div>
+  </aside>
+<% else %>
+  <div class="center jumbotron">
+    <h1><%= t "static_pages.home.signup" %></h1>
+    <%= link_to t(:sign_up_now), new_user_registration_path,
+      class: "btn btn-lg btn-primary" %>
   </div>
-</div>
+<% end %>

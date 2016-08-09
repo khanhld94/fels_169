@@ -26,6 +26,10 @@ module ApplicationHelper
   def get_correct_answer word
     word.word_answers.find_by is_correct: true
   end
+  
+  def lesson_status_class lesson
+    lesson.finished? ? "btn btn-danger" : "btn btn-warning"
+  end
 
   def correct_answer_class word_answer
     if word_answer.nil?
