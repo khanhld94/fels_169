@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :load_activities, only: :show
 
   def index
+    @users = @users.student.page params[:page]
   end
 
   def show

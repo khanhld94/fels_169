@@ -4,6 +4,7 @@
     <div class="w3-container">
       <img src="/assets/saitama.png" style="width:45%;" class="w3-round"><br><br>
       <h4 class="w3-padding-0"><b><%= current_user.name %></b></h4>
+      <h4 class="w3-padding-0"><b><%= current_user.email %></b></h4>
     </div>
     <%= link_to t("categories.category"), categories_path, 
       class: "w3-padding w3-text-teal" %>

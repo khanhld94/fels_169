@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates_integrity_of :avatar
   validates_processing_of :avatar
 
-  enum role: {admin: 1, user: 0}
+  enum role: {admin: 1, student: 0}
   
   class << self 
     def from_omniauth auth

@@ -18,6 +18,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     resize_to_fit(200, 200)
   end
 
+  def default_url *args
+    "http://res.cloudinary.com/duyhung/image/upload/v1470659816/default_avatar.png"
+  end
+
   # Choose what kind of storage to use for this uploader:
   # storage :fog
 
