@@ -12,6 +12,7 @@ class Ability
     else
       if user.admin?
         cannot :manage, :all
+        can :read, User
       else
         can :read, :all
         can :manage, Relationship

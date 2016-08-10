@@ -1,0 +1,10 @@
+<li>
+  <%= render "shared/activity_owner", a: a %>
+  <% if a.trackable %>
+    <%= t "activity.relationship.follow" %>
+    <%= link_to a.trackable.followed.name, a.trackable.followed %>
+  <% else %>
+    <%= t "activity.relationship.cancel" %>
+  <% end %>
+  <%= time_ago_in_words activity.created_at %> <%= t :ago %>
+</li>

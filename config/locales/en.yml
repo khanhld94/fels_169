@@ -25,6 +25,7 @@ en:
     delete_f: "Can't delete user"
     search: "Search"
     category: "category"
+    show: "Profile"
   facebook: "facebook"
   google_oauth2: "google"
   twitter: "twitter"
@@ -55,7 +56,7 @@ en:
     following: "Following"
     followers: "Followers"
   table:
-    name: "Category name"
+    name: "Name"
     description: "Description"
     email: "Email"
   submit: "Submit"
@@ -94,7 +95,12 @@ en:
   log_in: "Log in"
   social_signin: "Sign in with %{provide}"
   you: "You"
+  ago: "ago"
   activity:
     index: "All Activities"
     lesson:
       create: "has started a lesson in"
+    relationship:
+      follow: "follow"
+      unfollow: "unfollow an user"
+      cancel: "followed an user that is currently unfollow"
