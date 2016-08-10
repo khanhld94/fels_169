@@ -104,3 +104,9 @@ en:
       follow: "follow"
       unfollow: "unfollow an user"
       cancel: "followed an user that is currently unfollow"
+  navbar:
+    user: "User"
+    new_category: "New Category"
+    index_category: "Index Category"
+    index_word: "Index Word"
+    new_word: "New Word"

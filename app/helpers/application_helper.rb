@@ -40,6 +40,14 @@ module ApplicationHelper
     end
   end
 
+  def correct_answer_background_class word_answer
+    if word_answer.nil?
+      word_answer = "danger"
+    else
+      word_answer.is_correct? ? "success" : "danger"
+    end
+  end
+
   def current_user_activity_owner? a
     current_user.id == a.owner.id
   end
