@@ -5,8 +5,7 @@ class LessonsController < ApplicationController
   def index
     @lessons = current_user.lessons
     @search = @lessons.search params[:q]
-    @lessons = @search.result
-      .page(params[:page]).per Settings.per_page
+    @lessons = @search.result.page params[:page]
   end
 
   def create

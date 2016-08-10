@@ -5,3 +5,7 @@ per_page: 10
 default_number_of_answers: 4
 number_word: 5
 time_lesson: 20
+condition_filters:
+  - "learned"
+  - "not_learned"
+  - "all"
