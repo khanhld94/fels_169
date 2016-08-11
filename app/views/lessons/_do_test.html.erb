@@ -1,24 +1,28 @@
-<p>
-  <b><%= t :done %></b> :
-  <b id="number_of_checked"><%= @count %></b> /
-  <b><%= @lesson.results.count %></b>
-</p>  
-<div class="clock_lesson">
-  <b><%= t :remaining_times %></b>
-  <span id="time_lesson"><%= @time_lesson %></span>
-  <%= t :seconds %>
-</div>
-<h3><%= t :question %></h3>
-<%= form_for [@lesson.category, @lesson] do |f| %>
-  <%= f.fields_for :results do |result| %>
-    <%= render "test_fields", f: result %>
-  <% end %>
-  <%= f.hidden_field :status, id: "hidden_status" %>
-  <% if can? :update, @lesson %>
+<div class="col-md-5">
+  <h3><%= t :question %></h3>
+  <%= form_for [@lesson.category, @lesson] do |f| %>
+    <%= f.fields_for :results do |result| %>
+      <%= render "test_fields", f: result %>
+    <% end %>
+    <%= f.hidden_field :status, id: "hidden_status" %>
     <%= f.submit t(:save), method: :update,
-      data: {confirm: t(:confirm)}, class: "btn btn-primary form-control" %>
+      data: {confirm: t(:confirm)}, 
+      class: "btn btn-success form-control btn-submit", id: "save_button" %>
     <%= f.submit t(:finish), method: :update, 
-      data: {confirm: t(:confirm)}, class: "btn btn-primary form-control",
-      onclick: "submit_test()" %>
+      data: {confirm: t(:confirm)}, 
+      class: "btn btn-danger form-control btn-submit",
+      id: "finish_button", onclick: "submit_test()" %>
   <% end %>
-<% end %>
+</div>
+<div class="col-md-4" id="info_fields">
+  <h2><%= @lesson.category.name %></h2>
+  <p>
+    <b><%= t :done %></b> :
+    <b id="number_of_checked"><%= @count %></b> /
+    <b><%= @lesson.results.count %></b>
+  </p>  
+  <div class="clock">
+    <b><%= t :remaining_times %></b>
+    <span id="time_lesson"><%= @time_lesson %></span>
+  </div>
+</div>

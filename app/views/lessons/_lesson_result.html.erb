@@ -1,7 +1,8 @@
-<div>
+<h1 stlye="text-align: center"><%= @lesson.category.name %></h1>
+<h3>
   <%= t :correct_answer %> : <%= @sum_correct_answer %> /
   <%= @lesson.results.size %>
-</div>
+</h3>
 <table class="table">
   <thead>
     <th><%= t :word %></th>
@@ -10,7 +11,7 @@
   </thead>
   <tbody>
     <% @lesson.results.each do |result| %>
-      <tr>
+      <tr class="<%= correct_answer_background_class result.word_answer %>">
         <td><%= result.word.content %></td>
         <td><%= result.word_answer.present? ? 
           result.word_answer.content : "" %></td>

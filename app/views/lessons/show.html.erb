@@ -1,13 +1,6 @@
 <%= provide :title, @lesson.category.name %>
 <div class="dn-front-group">
-  <div class="col-md-6">
-    <b><%= t "categories.category" %></b> : <%= @lesson.category.name %>
-  </div>
-  <div class="col-md-7 col-md-offset-0 answer_show">
-    <h2>
-      <b><%= t "category.category" %></b> :
-      <b><%= @lesson.category.name %></b>
-    </h2>
+  <div>
     <hr>
     <div id="lesson_<%= @lesson.id %>">
       <p>
