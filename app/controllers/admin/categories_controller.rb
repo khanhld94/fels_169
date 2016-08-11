@@ -1,7 +1,7 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
   load_and_authorize_resource
-  
-  def new 
+
+  def new
   end
 
   def edit
@@ -24,7 +24,7 @@ class Admin::CategoriesController < ApplicationController
     else
       flash[:danger] = t "flash.fail"
     end
-    redirect_to admin_categories_path    
+    redirect_to admin_categories_path
   end
 
   def update
@@ -33,7 +33,7 @@ class Admin::CategoriesController < ApplicationController
     else
       flash[:danger] = t "flash.fail"
     end
-    redirect_to admin_categories_path  
+    redirect_to admin_categories_path
   end
 
   def create
@@ -42,7 +42,7 @@ class Admin::CategoriesController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end    
+    end
   end
 
   private

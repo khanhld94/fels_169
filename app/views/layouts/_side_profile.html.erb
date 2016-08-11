@@ -1,14 +1,10 @@
 <% if user_signed_in? %>
-  <nav class="w3-sidenav w3-collapse w3-white" 
+  <nav class="w3-sidenav w3-collapse w3-white"
     style="z-index:3;width:250px;" id="mySidenav"><br>
     <div class="w3-container">
       <img src="/assets/saitama.png" style="width:45%;" class="w3-round"><br><br>
       <h4 class="w3-padding-0"><b><%= current_user.name %></b></h4>
       <h4 class="w3-padding-0"><b><%= current_user.email %></b></h4>
     </div>
-    <%= link_to t("categories.category"), categories_path, 
-      class: "w3-padding w3-text-teal" %>
-    <%= link_to t("static_pages.about"), about_path, 
-      class: "w3-padding w3-text-teal" %>
   </nav>
 <% end %>

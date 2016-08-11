@@ -7,6 +7,6 @@
     <td>
       <%= get_correct_answer(word).content %>
     </td>
-    <td><%= word.category.name %></td>
+    <td><%= l word.updated_at, format: :long %></td>
   </tr>
 <% end %>

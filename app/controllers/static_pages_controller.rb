@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  before_action :verify_admin
   
   def home
     @lessons = current_user.lessons.includes(:results)
@@ -8,5 +9,10 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+  end
+
+  private
+  def verify_admin
+    redirect_to admin_root_url if current_user.admin?
   end
 end

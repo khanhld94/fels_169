@@ -2,12 +2,12 @@
 @import "bootstrap";
 
 .alert-notice {
-  @include alert-variant($alert-success-bg, 
+  @include alert-variant($alert-success-bg,
     $alert-success-border, $alert-success-text);
 }
 
 .alert-alert {
-  @include alert-variant($alert-danger-bg, 
+  @include alert-variant($alert-danger-bg,
     $alert-danger-border, $alert-danger-text);
 }
 h1, h3 {
@@ -362,5 +362,40 @@ body {
   #wrapper.toggled #page-content-wrapper {
     position: relative;
     margin-right: 0;
+  }
+}
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left:15px;
+    }
+  }
+}
+#footer {
+  position: fixed !important;
+  right: 30px;
+  bottom: 30px;
+}
+.page-header {
+  img {
+    width: 100%;
   }
 }

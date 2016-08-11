@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap
 function timeOut() {
   $('#hidden_status').val('finished');
   $('.edit_lesson').submit();

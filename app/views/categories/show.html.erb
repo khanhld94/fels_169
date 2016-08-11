@@ -5,8 +5,8 @@
     <% if can? :create, @lesson %>
       <%= form_for [@category, @lesson] do |f| %>
         <%= f.hidden_field :category_id, value: @category.id %>
-        <%= f.submit t("categories.create_lesson"), 
-          class: "btn btn-primary col-md-3" %>
+        <%= f.submit t("categories.create_lesson"),
+          class: "btn btn-primary col-md-2 col-md-offset-5" %>
       <% end %>
     <% end %>
   </div>

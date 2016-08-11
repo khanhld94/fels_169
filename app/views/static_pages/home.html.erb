@@ -1,8 +1,8 @@
 <% provide :title, t("static_pages.title") %>
 <% if user_signed_in? %>
   <aside>
-    <div class="col-md-9 home-content">
-      <h1><%= t :action %></h1>
+    <div class="col-md-8 home-content">
+      <h1><%= t :lesson %></h1>
       <table class="table table-bordered table-hover">
         <thead class="thead-default">
           <tr>
@@ -21,8 +21,8 @@
     </div>
   </aside>
   <aside>
-    <div class="col-md-3 activity">
-      <h1><%= t :activities_index %></h1>
+    <div class="col-md-4 activity">
+      <h1><%= t :recent_activities %></h1>
       <%= render_activities @activities %>
     </div>
   </aside>

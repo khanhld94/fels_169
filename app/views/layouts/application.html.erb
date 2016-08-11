@@ -7,7 +7,7 @@
     <%= javascript_include_tag "application",
       "data-turbolinks-track": true %>
     <%= csrf_meta_tags %>
-    <link rel="stylesheet" 
+    <link rel="stylesheet"
       href="http://www.w3schools.com/lib/w3.css">
     <%= render "layouts/shim" %>
   </head>
@@ -18,8 +18,8 @@
       <%= render "layouts/side_profile" %>
       <div class="w3-main" style="margin-left:300px">
         <%= yield %>
-        <%= debug params if Rails.env.development? %>
       </div>
+      <%= render "layouts/footer" %>
     </div>
   </body>
 </html>
